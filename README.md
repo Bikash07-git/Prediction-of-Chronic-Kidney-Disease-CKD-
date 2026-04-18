@@ -1,4 +1,4 @@
-# 🧠 Chronic Kidney Disease Prediction using Machine Learning
+# 🧠 Chronic Kidney Disease Prediction Using Machine Learning
 
 ## 📌 Project Overview
 
