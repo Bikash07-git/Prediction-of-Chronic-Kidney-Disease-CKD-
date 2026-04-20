@@ -82,7 +82,7 @@ Evaluation metrics:
 ## 📊 Results
 
 * Compared multiple models to identify best performance
-* Random Forest / Neural Network achieved highest accuracy *(update this if needed)*
+* Decision Tree has achieved the highest accuracy from 87% to 93%
 
 ---
 
