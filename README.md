@@ -39,7 +39,6 @@ CKD-Prediction/
 
 * **Programming Language:** Python
 * **Libraries:** pandas, numpy, matplotlib, seaborn, sklearn
-* **Deep Learning:** TensorFlow, Keras
 * **GUI:** tkinter
 
 ---
