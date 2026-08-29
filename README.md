@@ -1,167 +1,562 @@
 # 🧠 Chronic Kidney Disease Prediction Using Machine Learning
 
+A machine learning project for predicting **Chronic Kidney Disease (CKD)** using clinical and demographic patient data. The project implements data preprocessing, exploratory data analysis, feature transformation, model training, prediction, and performance comparison using traditional machine learning algorithms.
+
+The complete workflow is implemented in a **Jupyter Notebook** using Python and Scikit-learn.
+
+---
+
 ## 📌 Project Overview
 
-This project focuses on predicting **Chronic Kidney Disease (CKD)** using machine learning techniques. Early detection of CKD can significantly improve patient outcomes by enabling timely medical intervention.
+Chronic Kidney Disease is a major health condition that can be difficult to identify in its early stages. This project explores the application of machine learning classification techniques to predict CKD from patient health-related attributes.
 
-The model is trained on the **UCI Machine Learning Repository CKD dataset**, which includes **24 clinical and demographic features** such as blood pressure, hemoglobin, albumin levels, and more.
+The project uses the **UCI Chronic Kidney Disease dataset**, containing clinical and demographic features such as:
 
-The goal is to classify whether a patient has CKD (**Yes / No**) using various ML algorithms and compare their performance.
+* Age
+* Blood Pressure
+* Specific Gravity
+* Albumin
+* Sugar
+* Blood Glucose
+* Blood Urea
+* Serum Creatinine
+* Sodium
+* Potassium
+* Hemoglobin
+* Packed Cell Volume
+* White Blood Cell Count
+* Red Blood Cell Count
+* Hypertension
+* Diabetes Mellitus
+* Coronary Artery Disease
+* Appetite
+* Pedal Edema
+* Anemia
+* Other clinical indicators
 
----
+The target variable classifies patients into:
 
-## 🎯 Objectives
-
-* Perform data preprocessing and cleaning
-* Train multiple machine learning models
-* Evaluate models using performance metrics
-* Deploy the best model with a user-friendly interface
-
----
-
-## 🗂️ Project Structure
-
+```text
+CKD
+Not CKD
 ```
-CKD-Prediction/
-│── data/
-│── notebooks/
-│── src/
-│── models/
-│── results/
-│── main.py
-│── requirements.txt
-│── README.md
+
+---
+
+## 🎯 Project Objectives
+
+* Analyze the CKD dataset
+* Understand the structure and characteristics of the data
+* Identify missing and inconsistent values
+* Perform data cleaning and preprocessing
+* Analyze important clinical features through EDA
+* Convert categorical variables into numerical representations
+* Prepare features for machine learning
+* Train multiple classification algorithms
+* Generate predictions on test data
+* Evaluate and compare model performance
+* Identify the best-performing model based on the experiments
+
+---
+
+# 🔄 Machine Learning Execution Flow
+
+```text
+┌───────────────────────────────────────────┐
+│              CKD DATASET                  │
+│       UCI Chronic Kidney Disease          │
+└─────────────────────┬─────────────────────┘
+                      │
+                      ▼
+┌───────────────────────────────────────────┐
+│          DATA UNDERSTANDING               │
+│                                           │
+│  • Shape                                 │
+│  • Features                              │
+│  • Data Types                            │
+│  • Statistical Information               │
+│  • Target Distribution                   │
+└─────────────────────┬─────────────────────┘
+                      │
+                      ▼
+┌───────────────────────────────────────────┐
+│             DATA CLEANING                 │
+│                                           │
+│  • Missing Values                         │
+│  • Duplicate/Invalid Values               │
+│  • Data Type Correction                  │
+│  • Inconsistent Categories               │
+└─────────────────────┬─────────────────────┘
+                      │
+                      ▼
+┌───────────────────────────────────────────┐
+│        EXPLORATORY DATA ANALYSIS          │
+│                                           │
+│  • Feature Distributions                 │
+│  • Target Distribution                   │
+│  • Correlation Analysis                  │
+│  • Statistical Analysis                  │
+│  • Data Visualization                    │
+└─────────────────────┬─────────────────────┘
+                      │
+                      ▼
+┌───────────────────────────────────────────┐
+│          DATA PREPROCESSING               │
+│                                           │
+│  • Missing Value Treatment               │
+│  • Categorical Encoding                  │
+│  • Feature Transformation               │
+│  • Feature Scaling                       │
+└─────────────────────┬─────────────────────┘
+                      │
+                      ▼
+┌───────────────────────────────────────────┐
+│           TRAIN-TEST SPLIT                │
+│                                           │
+│        Training Data | Test Data          │
+└─────────────────────┬─────────────────────┘
+                      │
+                      ▼
+          ┌───────────┴───────────┐
+          │                       │
+          ▼                       ▼
+┌───────────────────┐   ┌───────────────────┐
+│ LOGISTIC          │   │ DECISION TREE     │
+│ REGRESSION        │   │ CLASSIFIER        │
+└─────────┬─────────┘   └─────────┬─────────┘
+          │                       │
+          └───────────┬───────────┘
+                      │
+                      ▼
+            ┌───────────────────┐
+            │   RANDOM FOREST   │
+            │    CLASSIFIER     │
+            └─────────┬─────────┘
+                      │
+                      ▼
+┌───────────────────────────────────────────┐
+│            MODEL PREDICTION               │
+│                                           │
+│     Predictions on Unseen Test Data       │
+└─────────────────────┬─────────────────────┘
+                      │
+                      ▼
+┌───────────────────────────────────────────┐
+│          MODEL PERFORMANCE                │
+│                                           │
+│  • Accuracy                              │
+│  • Precision                             │
+│  • Recall                                │
+│  • F1 Score                              │
+└─────────────────────┬─────────────────────┘
+                      │
+                      ▼
+┌───────────────────────────────────────────┐
+│          MODEL COMPARISON                 │
+│                                           │
+│  Compare classification performance       │
+│  and identify the best-performing model   │
+└─────────────────────┬─────────────────────┘
+                      │
+                      ▼
+┌───────────────────────────────────────────┐
+│          CKD PREDICTION                   │
+│                                           │
+│        CKD  /  NOT CKD                    │
+└───────────────────────────────────────────┘
 ```
 
 ---
 
-## ⚙️ Tech Stack
+## 🗂️ Dataset
 
-* **Programming Language:** Python
-* **Libraries:** pandas, numpy, matplotlib, seaborn, sklearn
-* **GUI:** tkinter
+### Dataset Source
+
+**Chronic Kidney Disease Dataset — UCI Machine Learning Repository**
+
+The dataset contains **400 patient records** and **24 input features** related to clinical and demographic characteristics.
+
+### Feature Categories
+
+#### Demographic Features
+
+* Age
+
+#### Clinical Measurements
+
+* Blood Pressure
+* Specific Gravity
+* Albumin
+* Sugar
+* Blood Glucose Random
+* Blood Urea
+* Serum Creatinine
+* Sodium
+* Potassium
+* Hemoglobin
+* Packed Cell Volume
+* White Blood Cell Count
+* Red Blood Cell Count
+
+#### Clinical Conditions
+
+* Hypertension
+* Diabetes Mellitus
+* Coronary Artery Disease
+* Pedal Edema
+* Anemia
+
+#### Other Clinical Indicators
+
+* Red Blood Cells
+* Pus Cell
+* Pus Cell Clumps
+* Bacteria
+* Appetite
+
+### Target
+
+```text
+ckd      → Chronic Kidney Disease
+notckd   → No Chronic Kidney Disease
+```
 
 ---
 
-## 🔍 Workflow
+## 🧹 Data Preprocessing
 
-### 1. Data Preprocessing
+The dataset requires preprocessing before it can be used for machine learning.
 
-* Handling missing values
+The notebook performs the following preprocessing operations:
+
+* Identification of missing values
+* Handling missing numerical values
+* Handling missing categorical values
+* Removal of unnecessary columns
+* Cleaning inconsistent values
+* Conversion of categorical values
 * Encoding categorical features
-* Feature scaling and normalization
+* Numerical feature transformation
+* Feature scaling where required
+* Separation of features and target variable
 
-### 2. Model Training
+---
 
-Models used:
+## 📊 Exploratory Data Analysis
 
-* Logistic Regression
-* Decision Tree
-* Random Forest
-* Neural Network (Keras)
+The notebook performs exploratory analysis to understand the dataset and identify relationships between features.
 
-### 3. Model Evaluation
+EDA includes:
 
-Evaluation metrics:
+* Dataset structure analysis
+* Descriptive statistics
+* Missing-value analysis
+* Target-class distribution
+* Numerical feature distributions
+* Categorical feature analysis
+* Feature correlation
+* Relationship between clinical variables
+* Visualization of important features
+
+### Visualization Libraries
+
+* Matplotlib
+* Seaborn
+
+---
+
+## 🤖 Machine Learning Models
+
+The project implements and compares the following machine learning algorithms:
+
+### Logistic Regression
+
+Used as a classification model for predicting the binary CKD target.
+
+### Decision Tree Classifier
+
+A tree-based classification algorithm used to identify decision patterns between clinical features and the target.
+
+### Random Forest Classifier
+
+An ensemble classification algorithm consisting of multiple decision trees.
+
+---
+
+## ⚙️ Model Training
+
+After preprocessing, the dataset is divided into training and testing subsets.
+
+The training process consists of:
+
+```text
+Preprocessed Dataset
+        │
+        ▼
+Feature / Target Separation
+        │
+        ▼
+Train-Test Split
+        │
+        ▼
+Model Initialization
+        │
+        ▼
+Model Training
+        │
+        ▼
+Test Data Prediction
+        │
+        ▼
+Performance Evaluation
+```
+
+Each machine learning model is trained using the prepared training dataset and evaluated against the test dataset.
+
+---
+
+## 📈 Model Performance Comparison
+
+The performance of the trained models is compared using:
 
 * Accuracy
 * Precision
 * Recall
 * F1 Score
 
-### 4. Deployment
+The experiments showed that the **Decision Tree model achieved the highest observed accuracy, approximately in the 87%–93% range**, depending on the experimental configuration.
 
-* GUI-based application built using **tkinter**
-* Allows users to:
-
-  * Train model
-  * Test model on new data
+The notebook contains the model-specific evaluation outputs and comparison of the implemented algorithms.
 
 ---
 
-## 📊 Results
+## 🧪 Prediction Workflow
 
-* Compared multiple models to identify best performance
-* Decision Tree has achieved the highest accuracy from 87% to 93%
+Once the models are trained, the test dataset is passed through the trained models.
+
+```text
+┌───────────────────────┐
+│    New Patient Data   │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│ Same Preprocessing    │
+│ Transformation        │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│ Trained ML Model      │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│      Prediction       │
+├───────────────────────┤
+│     CKD / NOT CKD     │
+└───────────────────────┘
+```
 
 ---
 
-## 💻 Installation & Setup
+## 📓 Jupyter Notebook
 
-### Step 1: Clone Repository
+The entire implementation is contained within the Jupyter Notebook.
+
+The notebook covers:
+
+```text
+01. Import Libraries
+02. Load Dataset
+03. Dataset Inspection
+04. Data Cleaning
+05. Missing Value Analysis
+06. Exploratory Data Analysis
+07. Data Preprocessing
+08. Feature Encoding
+09. Feature Scaling
+10. Train-Test Split
+11. Logistic Regression
+12. Decision Tree
+13. Random Forest
+14. Model Predictions
+15. Model Evaluation
+16. Model Comparison
+17. CKD Classification
+```
+
+---
+
+## 📁 Project Structure
+
+```text
+chronic-kidney-disease-prediction/
+│
+├── 📓 CKD_Prediction.ipynb
+│
+├── 📂 data/
+│   └── kidney_disease.csv
+│
+├── 📂 results/
+│   └── visualizations/
+│
+├── 📄 requirements.txt
+│
+└── 📖 README.md
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Category                  | Technology       |
+| ------------------------- | ---------------- |
+| Language                  | Python           |
+| Environment               | Jupyter Notebook |
+| Data Manipulation         | Pandas           |
+| Numerical Computing       | NumPy            |
+| Visualization             | Matplotlib       |
+| Statistical Visualization | Seaborn          |
+| Machine Learning          | Scikit-learn     |
+
+---
+
+## 📦 Python Libraries
+
+The project primarily uses:
+
+```text
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+jupyter
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### Clone the Repository
 
 ```bash
 git clone https://github.com/Bikash07-git/chronic-kidney-disease-prediction.git
+```
+
+```bash
 cd chronic-kidney-disease-prediction
 ```
 
-### Step 2: Create Virtual Environment
+### Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-#### Activate Environment
+### Activate Environment
 
-* Windows:
+#### Windows
 
 ```bash
 venv\Scripts\activate
 ```
 
-* Linux/Mac:
+#### Linux / macOS
 
 ```bash
 source venv/bin/activate
 ```
 
----
-
-### Step 3: Install Dependencies
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-### Step 4: Run Application
+### Launch Jupyter Notebook
 
 ```bash
-python main.py
+jupyter notebook
+```
+
+Open:
+
+```text
+CKD_Prediction.ipynb
+```
+
+Run the notebook cells sequentially to reproduce the analysis and machine learning workflow.
+
+---
+
+## 📌 Key Project Components
+
+```text
+┌───────────────────────────────────────────────┐
+│              PROJECT COMPONENTS               │
+├───────────────────────────────────────────────┤
+│                                               │
+│  ✓ Healthcare Dataset Analysis               │
+│  ✓ Data Cleaning                             │
+│  ✓ Missing Value Handling                    │
+│  ✓ Exploratory Data Analysis                 │
+│  ✓ Categorical Feature Encoding              │
+│  ✓ Feature Scaling                           │
+│  ✓ Train-Test Data Splitting                 │
+│  ✓ Multiple ML Classification Models         │
+│  ✓ Model Prediction                          │
+│  ✓ Performance Evaluation                    │
+│  ✓ Model Comparison                          │
+│                                               │
+└───────────────────────────────────────────────┘
 ```
 
 ---
 
-## 🖥️ Usage
+## 🔮 Future Improvements
 
-* Launch the application
-* Choose:
-
-  * **Train Model** → trains and saves model
-  * **Test Model** → predicts CKD on new input
-
----
-
-## 📈 Future Improvements
-
-* Add web deployment (Flask / FastAPI)
-* Improve model performance using feature engineering
-* Add real-time prediction API
-* Use advanced models like XGBoost / LightGBM
+* Hyperparameter tuning
+* K-Fold cross-validation
+* Advanced feature selection
+* Improved handling of class imbalance
+* ROC-AUC analysis
+* Precision-Recall curve analysis
+* Feature importance analysis
+* Model explainability
+* Experiment with additional ML algorithms
+* Model serialization for future predictions
+* Web-based deployment
+* REST API integration
 
 ---
 
-## 📜 License
+## ⚠️ Disclaimer
 
-This project is licensed under the **MIT License**.
+This project is intended **only for educational and research purposes**.
+
+The predictions generated by this machine learning model should not be interpreted as a medical diagnosis or used as a replacement for professional medical advice.
+
+---
+
+## 📚 References
+
+* UCI Machine Learning Repository — Chronic Kidney Disease Dataset
+* Scikit-learn Documentation
+* Pandas Documentation
+* NumPy Documentation
+* Matplotlib Documentation
+* Seaborn Documentation
 
 ---
 
-## 🙏 Acknowledgments
+## 👨‍💻 Author
 
-* Dataset: UCI Machine Learning Repository
-* Contributors: Open-source community
+**Bikash Sagar Koiri**
 
+Data Analyst | Machine Learning Enthusiast | AI & Research
 
 ---
+
+⭐ If you found this project useful, consider giving the repository a star.
