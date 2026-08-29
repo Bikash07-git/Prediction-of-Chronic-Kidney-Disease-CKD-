@@ -1,4 +1,4 @@
-# 🧠 Chronic Kidney Disease Prediction Using Machine Learning
+# 🧠 Chronic Kidney Disease Prediction Using Machine Learning (Decision Tree)
 
 A machine learning project for predicting **Chronic Kidney Disease (CKD)** using clinical and demographic patient data. The project implements data preprocessing, exploratory data analysis, feature transformation, model training, prediction, and performance comparison using traditional machine learning algorithms.
 
