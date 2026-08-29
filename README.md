@@ -1,41 +1,167 @@
-<div align="center">
+# 🧠 Chronic Kidney Disease Prediction Using Machine Learning
 
-  <!-- Dynamic Animated Header Wave -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,14,23,30&height=200&section=header&text=Bikash%20Sagar%20Koiri&fontSize=42&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=M.Tech%20CSE%20@%20BIT%20Mesra%20%7C%20Applied%20ML%20%26%20Data%20Analytics&descFontSize=18&descAlignY=58&descAlign=50" width="100%" alt="Header" />
+## 📌 Project Overview
 
-  <!-- High-Contrast Dynamic Typing Banner -->
-  <p align="center">
-    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2800&pause=1000&color=00F2FE&center=true&vCenter=true&width=800&lines=Building+Predictive+ML+Pipelines+%26+Intelligent+Systems;Transforming+Complex+Data+into+Actionable+Business+KPIs;Audio+Signal+Processing+%26+Voice+Pathology+Research;Python+•+Power+BI+•+Advanced+SQL+•+Scikit-Learn" alt="Typing SVG" />
-  </p>
+This project focuses on predicting **Chronic Kidney Disease (CKD)** using machine learning techniques. Early detection of CKD can significantly improve patient outcomes by enabling timely medical intervention.
 
-  <!-- High-Contrast Connect Pill Badges -->
-  <p align="center">
-    <a href="https://www.linkedin.com/in/bikashsk26/" target="_blank">
-      <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-    </a>
-    &nbsp;
-    <a href="mailto:sagarbikash97@gmail.com">
-      <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
-    </a>
-    &nbsp;
-    <a href="https://github.com/Bikash07-git">
-      <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-    </a>
-  </p>
+The model is trained on the **UCI Machine Learning Repository CKD dataset**, which includes **24 clinical and demographic features** such as blood pressure, hemoglobin, albumin levels, and more.
 
-</div>
+The goal is to classify whether a patient has CKD (**Yes / No**) using various ML algorithms and compare their performance.
 
 ---
 
-### ⚡ **Engineering Profile & Overview**
+## 🎯 Objectives
 
-<div align="center">
+* Perform data preprocessing and cleaning
+* Train multiple machine learning models
+* Evaluate models using performance metrics
+* Deploy the best model with a user-friendly interface
 
-```sql
-SELECT 
-    engineer        AS "Bikash Sagar Koiri",
-    institution     AS "BIT Mesra, Ranchi",
-    program         AS "M.Tech in Computer Science & Engineering",
-    core_focus      AS ARRAY['Applied ML', 'Data Analytics', 'Audio Signal AI', 'BI Systems'],
-    primary_stack   AS ARRAY['Python', 'SQL', 'Power BI', 'Scikit-Learn', 'DAX'],
-    mission         AS "Engineering scalable analytical solutions & high-precision predictive models";
+---
+
+## 🗂️ Project Structure
+
+```
+CKD-Prediction/
+│── data/
+│── notebooks/
+│── src/
+│── models/
+│── results/
+│── main.py
+│── requirements.txt
+│── README.md
+```
+
+---
+
+## ⚙️ Tech Stack
+
+* **Programming Language:** Python
+* **Libraries:** pandas, numpy, matplotlib, seaborn, sklearn
+* **GUI:** tkinter
+
+---
+
+## 🔍 Workflow
+
+### 1. Data Preprocessing
+
+* Handling missing values
+* Encoding categorical features
+* Feature scaling and normalization
+
+### 2. Model Training
+
+Models used:
+
+* Logistic Regression
+* Decision Tree
+* Random Forest
+* Neural Network (Keras)
+
+### 3. Model Evaluation
+
+Evaluation metrics:
+
+* Accuracy
+* Precision
+* Recall
+* F1 Score
+
+### 4. Deployment
+
+* GUI-based application built using **tkinter**
+* Allows users to:
+
+  * Train model
+  * Test model on new data
+
+---
+
+## 📊 Results
+
+* Compared multiple models to identify best performance
+* Decision Tree has achieved the highest accuracy from 87% to 93%
+
+---
+
+## 💻 Installation & Setup
+
+### Step 1: Clone Repository
+
+```bash
+git clone https://github.com/Bikash07-git/chronic-kidney-disease-prediction.git
+cd chronic-kidney-disease-prediction
+```
+
+### Step 2: Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+#### Activate Environment
+
+* Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+* Linux/Mac:
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+### Step 3: Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### Step 4: Run Application
+
+```bash
+python main.py
+```
+
+---
+
+## 🖥️ Usage
+
+* Launch the application
+* Choose:
+
+  * **Train Model** → trains and saves model
+  * **Test Model** → predicts CKD on new input
+
+---
+
+## 📈 Future Improvements
+
+* Add web deployment (Flask / FastAPI)
+* Improve model performance using feature engineering
+* Add real-time prediction API
+* Use advanced models like XGBoost / LightGBM
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 🙏 Acknowledgments
+
+* Dataset: UCI Machine Learning Repository
+* Contributors: Open-source community
+
+
+---
